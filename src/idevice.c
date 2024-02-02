@@ -424,6 +424,11 @@ LIBIMOBILEDEVICE_API void idevice_set_debug_level(int level)
 	internal_set_debug_level(level);
 }
 
+LIBIMOBILEDEVICE_API void idevice_set_debug_callback(idevice_debug_cb_t callback)
+{
+	internal_set_debug_callback(callback);
+}
+
 static idevice_t idevice_from_mux_device(usbmuxd_device_info_t *muxdev)
 {
 	if (!muxdev)
@@ -1533,6 +1538,42 @@ LIBIMOBILEDEVICE_API idevice_error_t idevice_connection_disable_bypass_ssl(idevi
 	connection->ssl_data = NULL;
 
 	debug_info("SSL mode disabled");
+
+	return IDEVICE_E_SUCCESS;
+}
+
+LIBIMOBILEDEVICE_API idevice_error_t idevice_set_socket_type(enum idevice_socket_type value)
+{
+	if (usbmuxd_set_socket_type((enum usbmuxd_socket_type)value) != 0) {
+		return IDEVICE_E_UNKNOWN_ERROR;
+	}
+
+	return IDEVICE_E_SUCCESS;
+}
+
+LIBIMOBILEDEVICE_API idevice_error_t idevice_get_socket_type(enum idevice_socket_type* value)
+{
+	if (usbmuxd_get_socket_type((enum usbmuxd_socket_type*)value) != 0) {
+		return IDEVICE_E_UNKNOWN_ERROR;
+	}
+
+	return IDEVICE_E_SUCCESS;
+}
+
+LIBIMOBILEDEVICE_API idevice_error_t idevice_set_tcp_endpoint(const char* host, uint16_t port)
+{
+	if (usbmuxd_set_tcp_endpoint(host, port) != 0) {
+		return IDEVICE_E_UNKNOWN_ERROR;
+	}
+
+	return IDEVICE_E_SUCCESS;
+}
+
+LIBIMOBILEDEVICE_API idevice_error_t idevice_get_tcp_endpoint(char** host, uint16_t* port)
+{
+	if (usbmuxd_get_tcp_endpoint(host, port) != 0) {
+		return IDEVICE_E_UNKNOWN_ERROR;
+	}
 
 	return IDEVICE_E_SUCCESS;
 }

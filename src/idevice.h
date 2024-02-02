@@ -37,6 +37,10 @@
 #include <mbedtls/ctr_drbg.h>
 #endif
 
+#ifdef _MSC_VER
+#define LIBIMOBILEDEVICE_API __declspec( dllexport )
+#endif
+
 #ifdef WIN32
 #define LIBIMOBILEDEVICE_API __declspec( dllexport )
 #else

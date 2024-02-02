@@ -714,7 +714,7 @@ LIBIMOBILEDEVICE_API mobilesync_error_t mobilesync_cancel(mobilesync_client_t cl
 	return err;
 }
 
-LIBIMOBILEDEVICE_API mobilesync_anchors_t mobilesync_anchors_new(const char *device_anchor, const char *computer_anchor)
+LIBIMOBILEDEVICE_API mobilesync_error_t mobilesync_anchors_new(const char *device_anchor, const char *computer_anchor, mobilesync_anchors_t *anchor)
 {
 	mobilesync_anchors_t anchors = (mobilesync_anchors_t) malloc(sizeof(mobilesync_anchors));
 	if (device_anchor != NULL) {
@@ -728,10 +728,11 @@ LIBIMOBILEDEVICE_API mobilesync_anchors_t mobilesync_anchors_new(const char *dev
 		anchors->computer_anchor = NULL;
 	}
 
-	return anchors;
+	*anchor = anchors;
+	return MOBILESYNC_E_SUCCESS;
 }
 
-LIBIMOBILEDEVICE_API void mobilesync_anchors_free(mobilesync_anchors_t anchors)
+LIBIMOBILEDEVICE_API mobilesync_error_t mobilesync_anchors_free(mobilesync_anchors_t anchors)
 {
 	if (anchors->device_anchor != NULL) {
 		free(anchors->device_anchor);
@@ -743,6 +744,7 @@ LIBIMOBILEDEVICE_API void mobilesync_anchors_free(mobilesync_anchors_t anchors)
 	}
 	free(anchors);
 	anchors = NULL;
+	return MOBILESYNC_E_SUCCESS;
 }
 
 LIBIMOBILEDEVICE_API plist_t mobilesync_actions_new(void)
