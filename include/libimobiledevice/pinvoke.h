@@ -42,7 +42,7 @@ typedef enum {
 *
 * @return Always returns PINVOKE_E_SUCCESS.
 */
-LIBIMOBILEDEVICE_API_MSC pinvoke_error_t pinvoke_free_string(char *string);
+LIBIMOBILEDEVICE_API pinvoke_error_t pinvoke_free_string(char *string);
 
 /**
 * Gets the size of a string that was previously allocated by libimobiledevice.
@@ -52,7 +52,7 @@ LIBIMOBILEDEVICE_API_MSC pinvoke_error_t pinvoke_free_string(char *string);
 *
 * @return Always returns PINVOKE_E_SUCCESS.
 */
-LIBIMOBILEDEVICE_API_MSC pinvoke_error_t pinvoke_get_string_length(const char *string, uint64_t *length);
+LIBIMOBILEDEVICE_API pinvoke_error_t pinvoke_get_string_length(const char *string, uint64_t *length);
 
 #ifdef __cplusplus
 }

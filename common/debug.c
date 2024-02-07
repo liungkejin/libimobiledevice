@@ -31,9 +31,9 @@
 #include <stdlib.h>
 #include <time.h>
 
+#include "src/idevice.h"
 #include "debug.h"
 #include "libimobiledevice/libimobiledevice.h"
-#include "src/idevice.h"
 
 #ifndef STRIP_DEBUG_CODE
 #include "asprintf.h"
@@ -89,7 +89,7 @@ static void debug_print_line(const char *func, const char *file, int line, const
 }
 #endif
 
-LIBIMOBILEDEVICE_API_MSC void debug_info_real(const char *func, const char *file, int line, const char *format, ...)
+void debug_info_real(const char *func, const char *file, int line, const char *format, ...)
 {
 #ifndef STRIP_DEBUG_CODE
 	va_list args;

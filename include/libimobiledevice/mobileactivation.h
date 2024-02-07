@@ -59,7 +59,7 @@ typedef mobileactivation_client_private *mobileactivation_client_t; /**< The cli
  *     MOBILEACTIVATION_E_INVALID_ARG when one of the parameters is invalid,
  *     or MOBILEACTIVATION_E_MUX_ERROR when the connection failed.
  */
-LIBIMOBILEDEVICE_API_MSC mobileactivation_error_t mobileactivation_client_new(idevice_t device, lockdownd_service_descriptor_t service, mobileactivation_client_t *client);
+LIBIMOBILEDEVICE_API mobileactivation_error_t mobileactivation_client_new(idevice_t device, lockdownd_service_descriptor_t service, mobileactivation_client_t *client);
 
 /**
  * Starts a new mobileactivation service on the specified device and connects to it.
@@ -74,7 +74,7 @@ LIBIMOBILEDEVICE_API_MSC mobileactivation_error_t mobileactivation_client_new(id
  * @return MOBILEACTIVATION_E_SUCCESS on success, or an MOBILEACTIVATION_E_*
  *     error code otherwise.
  */
-LIBIMOBILEDEVICE_API_MSC mobileactivation_error_t mobileactivation_client_start_service(idevice_t device, mobileactivation_client_t* client, const char* label);
+LIBIMOBILEDEVICE_API mobileactivation_error_t mobileactivation_client_start_service(idevice_t device, mobileactivation_client_t* client, const char* label);
 
 /**
  * Disconnects a mobileactivation client from the device and frees up the
@@ -87,7 +87,7 @@ LIBIMOBILEDEVICE_API_MSC mobileactivation_error_t mobileactivation_client_start_
  *     is invalid, or MOBILEACTIVATION_E_UNKNOWN_ERROR when the was an
  *     error freeing the parent property_list_service client.
  */
-LIBIMOBILEDEVICE_API_MSC mobileactivation_error_t mobileactivation_client_free(mobileactivation_client_t client);
+LIBIMOBILEDEVICE_API mobileactivation_error_t mobileactivation_client_free(mobileactivation_client_t client);
 
 
 /**
@@ -102,7 +102,7 @@ LIBIMOBILEDEVICE_API_MSC mobileactivation_error_t mobileactivation_client_free(m
  * @return MOBILEACTIVATION_E_SUCCESS on success, or an MOBILEACTIVATION_E_*
  *     error code otherwise.
  */
-LIBIMOBILEDEVICE_API_MSC mobileactivation_error_t mobileactivation_get_activation_state(mobileactivation_client_t client, plist_t *state);
+LIBIMOBILEDEVICE_API mobileactivation_error_t mobileactivation_get_activation_state(mobileactivation_client_t client, plist_t *state);
 
 /**
  * Retrieves a session blob required for 'drmHandshake' via albert.apple.com.
@@ -116,7 +116,7 @@ LIBIMOBILEDEVICE_API_MSC mobileactivation_error_t mobileactivation_get_activatio
  * @return MOBILEACTIVATION_E_SUCCESS on success, or an MOBILEACTIVATION_E_*
  *     error code otherwise.
  */
-LIBIMOBILEDEVICE_API_MSC mobileactivation_error_t mobileactivation_create_activation_session_info(mobileactivation_client_t client, plist_t *blob);
+LIBIMOBILEDEVICE_API mobileactivation_error_t mobileactivation_create_activation_session_info(mobileactivation_client_t client, plist_t *blob);
 
 /**
  * Retrieves the activation info required for device activation.
@@ -130,7 +130,7 @@ LIBIMOBILEDEVICE_API_MSC mobileactivation_error_t mobileactivation_create_activa
  * @return MOBILEACTIVATION_E_SUCCESS on success, or an MOBILEACTIVATION_E_*
  *     error code otherwise.
  */
-LIBIMOBILEDEVICE_API_MSC mobileactivation_error_t mobileactivation_create_activation_info(mobileactivation_client_t client, plist_t *info);
+LIBIMOBILEDEVICE_API mobileactivation_error_t mobileactivation_create_activation_info(mobileactivation_client_t client, plist_t *info);
 
 /**
  * Retrieves the activation info required for device activation in 'session'
@@ -148,7 +148,7 @@ LIBIMOBILEDEVICE_API_MSC mobileactivation_error_t mobileactivation_create_activa
  * @return MOBILEACTIVATION_E_SUCCESS on success, or an MOBILEACTIVATION_E_*
  *     error code otherwise.
  */
-LIBIMOBILEDEVICE_API_MSC mobileactivation_error_t mobileactivation_create_activation_info_with_session(mobileactivation_client_t client, plist_t handshake_response, plist_t *info);
+LIBIMOBILEDEVICE_API mobileactivation_error_t mobileactivation_create_activation_info_with_session(mobileactivation_client_t client, plist_t handshake_response, plist_t *info);
 
 /**
  * Activates the device with the given activation record.
@@ -161,7 +161,7 @@ LIBIMOBILEDEVICE_API_MSC mobileactivation_error_t mobileactivation_create_activa
  * @return MOBILEACTIVATION_E_SUCCESS on success, or an MOBILEACTIVATION_E_*
  *     error code otherwise.
  */
-LIBIMOBILEDEVICE_API_MSC mobileactivation_error_t mobileactivation_activate(mobileactivation_client_t client, plist_t activation_record);
+LIBIMOBILEDEVICE_API mobileactivation_error_t mobileactivation_activate(mobileactivation_client_t client, plist_t activation_record);
 
 /**
  * Activates the device with the given activation record in 'session' mode.
@@ -176,14 +176,14 @@ LIBIMOBILEDEVICE_API_MSC mobileactivation_error_t mobileactivation_activate(mobi
  * @return MOBILEACTIVATION_E_SUCCESS on success, or an MOBILEACTIVATION_E_*
  *     error code otherwise.
  */
-LIBIMOBILEDEVICE_API_MSC mobileactivation_error_t mobileactivation_activate_with_session(mobileactivation_client_t client, plist_t activation_record, plist_t headers);
+LIBIMOBILEDEVICE_API mobileactivation_error_t mobileactivation_activate_with_session(mobileactivation_client_t client, plist_t activation_record, plist_t headers);
 
 /**
  * Deactivates the device.
  *
  * @param client The mobileactivation client
  */
-LIBIMOBILEDEVICE_API_MSC mobileactivation_error_t mobileactivation_deactivate(mobileactivation_client_t client);
+LIBIMOBILEDEVICE_API mobileactivation_error_t mobileactivation_deactivate(mobileactivation_client_t client);
 
 #ifdef __cplusplus
 }

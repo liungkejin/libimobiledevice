@@ -62,7 +62,7 @@ typedef file_relay_client_private *file_relay_client_t; /**< The client handle. 
  *     FILE_RELAY_E_INVALID_ARG when one of the parameters is invalid,
  *     or FILE_RELAY_E_MUX_ERROR when the connection failed.
  */
-LIBIMOBILEDEVICE_API_MSC file_relay_error_t file_relay_client_new(idevice_t device, lockdownd_service_descriptor_t service, file_relay_client_t *client);
+LIBIMOBILEDEVICE_API file_relay_error_t file_relay_client_new(idevice_t device, lockdownd_service_descriptor_t service, file_relay_client_t *client);
 
 /**
  * Starts a new file_relay service on the specified device and connects to it.
@@ -77,7 +77,7 @@ LIBIMOBILEDEVICE_API_MSC file_relay_error_t file_relay_client_new(idevice_t devi
  * @return FILE_RELAY_E_SUCCESS on success, or an FILE_RELAY_E_* error
  *     code otherwise.
  */
-LIBIMOBILEDEVICE_API_MSC file_relay_error_t file_relay_client_start_service(idevice_t device, file_relay_client_t* client, const char* label);
+LIBIMOBILEDEVICE_API file_relay_error_t file_relay_client_start_service(idevice_t device, file_relay_client_t* client, const char* label);
 
 /**
  * Disconnects a file_relay client from the device and frees up the file_relay
@@ -90,7 +90,7 @@ LIBIMOBILEDEVICE_API_MSC file_relay_error_t file_relay_client_start_service(idev
  *     is invalid, or FILE_RELAY_E_UNKNOWN_ERROR when the was an error
  *     freeing the parent property_list_service client.
  */
-LIBIMOBILEDEVICE_API_MSC file_relay_error_t file_relay_client_free(file_relay_client_t client);
+LIBIMOBILEDEVICE_API file_relay_error_t file_relay_client_free(file_relay_client_t client);
 
 
 /**
@@ -123,7 +123,7 @@ LIBIMOBILEDEVICE_API_MSC file_relay_error_t file_relay_client_free(file_relay_cl
  *     sources are invalid, FILE_RELAY_E_STAGING_EMPTY if no data is available
  *     for the given sources, or FILE_RELAY_E_UNKNOWN_ERROR otherwise.
  */
-LIBIMOBILEDEVICE_API_MSC file_relay_error_t file_relay_request_sources(file_relay_client_t client, const char **sources, idevice_connection_t *connection);
+LIBIMOBILEDEVICE_API file_relay_error_t file_relay_request_sources(file_relay_client_t client, const char **sources, idevice_connection_t *connection);
 
 /**
  * Request data for the given sources. Calls file_relay_request_sources_timeout() with
@@ -157,7 +157,7 @@ LIBIMOBILEDEVICE_API_MSC file_relay_error_t file_relay_request_sources(file_rela
  *     sources are invalid, FILE_RELAY_E_STAGING_EMPTY if no data is available
  *     for the given sources, or FILE_RELAY_E_UNKNOWN_ERROR otherwise.
  */
-LIBIMOBILEDEVICE_API_MSC file_relay_error_t file_relay_request_sources_timeout(file_relay_client_t client, const char **sources, idevice_connection_t *connection, unsigned int timeout);
+LIBIMOBILEDEVICE_API file_relay_error_t file_relay_request_sources_timeout(file_relay_client_t client, const char **sources, idevice_connection_t *connection, unsigned int timeout);
 
 #ifdef __cplusplus
 }

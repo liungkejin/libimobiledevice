@@ -86,7 +86,7 @@ typedef mobilesync_anchors *mobilesync_anchors_t;
  * @retval DEVICE_LINK_SERVICE_E_BAD_VERSION if the mobilesync version on
  * the device is newer.
  */
-LIBIMOBILEDEVICE_API_MSC mobilesync_error_t mobilesync_client_new(idevice_t device, lockdownd_service_descriptor_t service, mobilesync_client_t * client);
+LIBIMOBILEDEVICE_API mobilesync_error_t mobilesync_client_new(idevice_t device, lockdownd_service_descriptor_t service, mobilesync_client_t * client);
 
 /**
  * Starts a new mobilesync service on the specified device and connects to it.
@@ -101,7 +101,7 @@ LIBIMOBILEDEVICE_API_MSC mobilesync_error_t mobilesync_client_new(idevice_t devi
  * @return MOBILESYNC_E_SUCCESS on success, or an MOBILESYNC_E_* error
  *     code otherwise.
  */
-LIBIMOBILEDEVICE_API_MSC mobilesync_error_t mobilesync_client_start_service(idevice_t device, mobilesync_client_t* client, const char* label);
+LIBIMOBILEDEVICE_API mobilesync_error_t mobilesync_client_start_service(idevice_t device, mobilesync_client_t* client, const char* label);
 
 /**
  * Disconnects a mobilesync client from the device and frees up the
@@ -112,7 +112,7 @@ LIBIMOBILEDEVICE_API_MSC mobilesync_error_t mobilesync_client_start_service(idev
  * @retval MOBILESYNC_E_SUCCESS on success
  * @retval MOBILESYNC_E_INVALID_ARG if \a client is NULL.
  */
-LIBIMOBILEDEVICE_API_MSC mobilesync_error_t mobilesync_client_free(mobilesync_client_t client);
+LIBIMOBILEDEVICE_API mobilesync_error_t mobilesync_client_free(mobilesync_client_t client);
 
 
 /**
@@ -123,7 +123,7 @@ LIBIMOBILEDEVICE_API_MSC mobilesync_error_t mobilesync_client_free(mobilesync_cl
  *
  * @return an error code
  */
-LIBIMOBILEDEVICE_API_MSC mobilesync_error_t mobilesync_receive(mobilesync_client_t client, plist_t *plist);
+LIBIMOBILEDEVICE_API mobilesync_error_t mobilesync_receive(mobilesync_client_t client, plist_t *plist);
 
 /**
  * Sends mobilesync data to the device
@@ -136,7 +136,7 @@ LIBIMOBILEDEVICE_API_MSC mobilesync_error_t mobilesync_receive(mobilesync_client
  *
  * @return an error code
  */
-LIBIMOBILEDEVICE_API_MSC mobilesync_error_t mobilesync_send(mobilesync_client_t client, plist_t plist);
+LIBIMOBILEDEVICE_API mobilesync_error_t mobilesync_send(mobilesync_client_t client, plist_t plist);
 
 
 /**
@@ -159,7 +159,7 @@ LIBIMOBILEDEVICE_API_MSC mobilesync_error_t mobilesync_send(mobilesync_client_t 
  * @retval MOBILESYNC_E_CANCELLED if the device explicitly cancelled the
  * sync request
  */
-LIBIMOBILEDEVICE_API_MSC mobilesync_error_t mobilesync_start(mobilesync_client_t client, const char *data_class, mobilesync_anchors_t anchors, uint64_t computer_data_class_version, mobilesync_sync_type_t *sync_type, uint64_t *device_data_class_version, char** error_description);
+LIBIMOBILEDEVICE_API mobilesync_error_t mobilesync_start(mobilesync_client_t client, const char *data_class, mobilesync_anchors_t anchors, uint64_t computer_data_class_version, mobilesync_sync_type_t *sync_type, uint64_t *device_data_class_version, char** error_description);
 
 /**
  * Cancels a running synchronization session with a device at any time.
@@ -170,7 +170,7 @@ LIBIMOBILEDEVICE_API_MSC mobilesync_error_t mobilesync_start(mobilesync_client_t
  * @retval MOBILESYNC_E_SUCCESS on success
  * @retval MOBILESYNC_E_INVALID_ARG if one of the parameters is invalid
  */
-LIBIMOBILEDEVICE_API_MSC mobilesync_error_t mobilesync_cancel(mobilesync_client_t client, const char* reason);
+LIBIMOBILEDEVICE_API mobilesync_error_t mobilesync_cancel(mobilesync_client_t client, const char* reason);
 
 /**
  * Finish a synchronization session of a data class on the device.
@@ -183,7 +183,7 @@ LIBIMOBILEDEVICE_API_MSC mobilesync_error_t mobilesync_cancel(mobilesync_client_
  * @retval MOBILESYNC_E_PLIST_ERROR if the received plist is not of valid
  * form
  */
-LIBIMOBILEDEVICE_API_MSC mobilesync_error_t mobilesync_finish(mobilesync_client_t client);
+LIBIMOBILEDEVICE_API mobilesync_error_t mobilesync_finish(mobilesync_client_t client);
 
 
 /**
@@ -196,7 +196,7 @@ LIBIMOBILEDEVICE_API_MSC mobilesync_error_t mobilesync_finish(mobilesync_client_
  * @retval MOBILESYNC_E_SUCCESS on success
  * @retval MOBILESYNC_E_INVALID_ARG if one of the parameters is invalid
  */
-LIBIMOBILEDEVICE_API_MSC mobilesync_error_t mobilesync_get_all_records_from_device(mobilesync_client_t client);
+LIBIMOBILEDEVICE_API mobilesync_error_t mobilesync_get_all_records_from_device(mobilesync_client_t client);
 
 /**
  * Requests to receive only changed records of the currently set data class from the device.
@@ -208,7 +208,7 @@ LIBIMOBILEDEVICE_API_MSC mobilesync_error_t mobilesync_get_all_records_from_devi
  * @retval MOBILESYNC_E_SUCCESS on success
  * @retval MOBILESYNC_E_INVALID_ARG if one of the parameters is invalid
  */
-LIBIMOBILEDEVICE_API_MSC mobilesync_error_t mobilesync_get_changes_from_device(mobilesync_client_t client);
+LIBIMOBILEDEVICE_API mobilesync_error_t mobilesync_get_changes_from_device(mobilesync_client_t client);
 
 /**
  * Requests the device to delete all records of the current data class
@@ -221,7 +221,7 @@ LIBIMOBILEDEVICE_API_MSC mobilesync_error_t mobilesync_get_changes_from_device(m
  * @retval MOBILESYNC_E_INVALID_ARG if one of the parameters is invalid
  * @retval MOBILESYNC_E_PLIST_ERROR if the received plist is not of valid form
  */
-LIBIMOBILEDEVICE_API_MSC mobilesync_error_t mobilesync_clear_all_records_on_device(mobilesync_client_t client);
+LIBIMOBILEDEVICE_API mobilesync_error_t mobilesync_clear_all_records_on_device(mobilesync_client_t client);
 
 
 /**
@@ -237,7 +237,7 @@ LIBIMOBILEDEVICE_API_MSC mobilesync_error_t mobilesync_clear_all_records_on_devi
  * @retval MOBILESYNC_E_CANCELLED if the device explicitly cancelled the
  * session
  */
-LIBIMOBILEDEVICE_API_MSC mobilesync_error_t mobilesync_receive_changes(mobilesync_client_t client, plist_t *entities, uint8_t *is_last_record, plist_t *actions);
+LIBIMOBILEDEVICE_API mobilesync_error_t mobilesync_receive_changes(mobilesync_client_t client, plist_t *entities, uint8_t *is_last_record, plist_t *actions);
 
 /**
  * Acknowledges to the device that the changes have been merged on the computer
@@ -247,7 +247,7 @@ LIBIMOBILEDEVICE_API_MSC mobilesync_error_t mobilesync_receive_changes(mobilesyn
  * @retval MOBILESYNC_E_SUCCESS on success
  * @retval MOBILESYNC_E_INVALID_ARG if one of the parameters is invalid
  */
-LIBIMOBILEDEVICE_API_MSC mobilesync_error_t mobilesync_acknowledge_changes_from_device(mobilesync_client_t client);
+LIBIMOBILEDEVICE_API mobilesync_error_t mobilesync_acknowledge_changes_from_device(mobilesync_client_t client);
 
 
 /**
@@ -267,7 +267,7 @@ LIBIMOBILEDEVICE_API_MSC mobilesync_error_t mobilesync_acknowledge_changes_from_
  * @retval MOBILESYNC_E_NOT_READY if the device is not ready to start
  * receiving any changes
  */
-LIBIMOBILEDEVICE_API_MSC mobilesync_error_t mobilesync_ready_to_send_changes_from_computer(mobilesync_client_t client);
+LIBIMOBILEDEVICE_API mobilesync_error_t mobilesync_ready_to_send_changes_from_computer(mobilesync_client_t client);
 
 
 /**
@@ -284,7 +284,7 @@ LIBIMOBILEDEVICE_API_MSC mobilesync_error_t mobilesync_ready_to_send_changes_fro
  * @retval MOBILESYNC_E_WRONG_DIRECTION if the current sync direction does
  * not permit this call
  */
-LIBIMOBILEDEVICE_API_MSC mobilesync_error_t mobilesync_send_changes(mobilesync_client_t client, plist_t entities, uint8_t is_last_record, plist_t actions);
+LIBIMOBILEDEVICE_API mobilesync_error_t mobilesync_send_changes(mobilesync_client_t client, plist_t entities, uint8_t is_last_record, plist_t actions);
 
 /**
  * Receives any remapped identifiers reported after the device merged submitted changes.
@@ -301,7 +301,7 @@ LIBIMOBILEDEVICE_API_MSC mobilesync_error_t mobilesync_send_changes(mobilesync_c
  * @retval MOBILESYNC_E_CANCELLED if the device explicitly cancelled the
  * session
  */
-LIBIMOBILEDEVICE_API_MSC mobilesync_error_t mobilesync_remap_identifiers(mobilesync_client_t client, plist_t *mapping);
+LIBIMOBILEDEVICE_API mobilesync_error_t mobilesync_remap_identifiers(mobilesync_client_t client, plist_t *mapping);
 
 /* Helper */
 
@@ -314,14 +314,14 @@ LIBIMOBILEDEVICE_API_MSC mobilesync_error_t mobilesync_remap_identifiers(mobiles
  *
  * @return A new #mobilesync_anchors_t struct. Must be freed using mobilesync_anchors_free().
  */
-LIBIMOBILEDEVICE_API_MSC mobilesync_error_t mobilesync_anchors_new(const char *device_anchor, const char *computer_anchor, mobilesync_anchors_t *anchor);
+LIBIMOBILEDEVICE_API mobilesync_anchors_t mobilesync_anchors_new(const char *device_anchor, const char *computer_anchor);
 
 /**
  * Free memory used by anchors.
  *
  * @param anchors The anchors to free.
  */
-LIBIMOBILEDEVICE_API_MSC mobilesync_error_t mobilesync_anchors_free(mobilesync_anchors_t anchors);
+LIBIMOBILEDEVICE_API void mobilesync_anchors_free(mobilesync_anchors_t anchors);
 
 
 /**
@@ -329,7 +329,7 @@ LIBIMOBILEDEVICE_API_MSC mobilesync_error_t mobilesync_anchors_free(mobilesync_a
  *
  * @return A new plist_t of type PLIST_DICT.
  */
-LIBIMOBILEDEVICE_API_MSC plist_t mobilesync_actions_new(void);
+LIBIMOBILEDEVICE_API plist_t mobilesync_actions_new(void);
 
 /**
  * Add one or more new key:value pairs to the given actions plist.
@@ -343,14 +343,14 @@ LIBIMOBILEDEVICE_API_MSC plist_t mobilesync_actions_new(void);
  *       integer to use as a boolean value indicating that the device should
  *       link submitted changes and report remapped identifiers.
  */
-LIBIMOBILEDEVICE_API_MSC void mobilesync_actions_add(plist_t actions, ...);
+LIBIMOBILEDEVICE_API void mobilesync_actions_add(plist_t actions, ...);
 
 /**
  * Free actions plist.
  *
  * @param actions The actions plist to free. Does nothing if NULL is passed.
  */
-LIBIMOBILEDEVICE_API_MSC void mobilesync_actions_free(plist_t actions);
+LIBIMOBILEDEVICE_API void mobilesync_actions_free(plist_t actions);
 
 #ifdef __cplusplus
 }
